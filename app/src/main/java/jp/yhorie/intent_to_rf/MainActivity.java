@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
   }
 
   @Override
-  protected void onResume() {
-    super.onResume();
+  protected void onStart() {
+    super.onStart();
     getAndSendIntent(getIntent());
   }
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
           Uri uri = Uri.parse("http://yhor1e.github.io/rf/?title=" + String.valueOf(mCharSequenceSubject) + "&description=" + String.valueOf(mCharSequenceText));
           Toast.makeText(MainActivity.this, uri.toString(), Toast.LENGTH_SHORT).show();
           Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-          intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+          intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
           startActivity(intent);
         }
       }
